@@ -12,10 +12,11 @@ RUN \
  apk --purge del .build-deps
 
 RUN apk add --no-cache --update jpeg-dev zlib-dev libjpeg libwebp-dev
-RUN pip install Pillow
-
-COPY . .
 
 RUN pip install --upgrade pip
 
+RUN pip install Pillow
+
 RUN pip install -r requirements.txt --no-cache-dir
+
+COPY . .
